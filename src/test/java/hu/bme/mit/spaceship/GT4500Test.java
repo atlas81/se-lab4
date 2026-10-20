@@ -66,4 +66,15 @@ class GT4500Test {
         boolean result = ship.fireTorpedo(FiringMode.ALL);
         assertEquals(false, result);
     }
+
+    @Test 
+    void fireTorpedo_Primary_Last_Time_But_Sec_Is_Empty() {
+        this.ship = new GT4500(1, 0, 0, 0);
+        boolean result1 = ship.fireTorpedo(FiringMode.SINGLE);
+        boolean result2 = ship.fireTorpedo(FiringMode.SINGLE);
+
+        assertEquals(true, result1);
+        assertEquals(false, result2);
+    }
+
 }
